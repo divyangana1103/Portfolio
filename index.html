@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Divyangana Bhave · UI/UX Designer</title>
+  <meta name="description" content="Divyangana Bhave, UI/UX designer from Pune. Research-led, detail-obsessed design for enterprise, accessibility, sustainability and craft." />
+  <meta name="theme-color" content="#EDECE7" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&family=Manrope:wght@400..700&family=Inter:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='4' y='5' width='24' height='7' rx='2' fill='%233B30F0'/%3E%3Crect x='4' y='13' width='24' height='7' rx='2' fill='%23FF6B4A'/%3E%3Crect x='4' y='21' width='24' height='7' rx='2' fill='%230E0E10'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <!-- icon sprite: one 1.5 stroke family -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-ur" viewBox="0 0 16 16"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></symbol>
+      <symbol id="i-down" viewBox="0 0 16 16"><path d="M8 3v10M3.5 8.5L8 13l4.5-4.5"/></symbol>
+      <symbol id="i-left" viewBox="0 0 16 16"><path d="M13 8H3M7.5 3.5L3 8l4.5 4.5"/></symbol>
+      <symbol id="i-right" viewBox="0 0 16 16"><path d="M3 8h10M8.5 3.5L13 8l-4.5 4.5"/></symbol>
+      <symbol id="i-up" viewBox="0 0 16 16"><path d="M8 13V3M3.5 7.5L8 3l4.5 4.5"/></symbol>
+      <symbol id="i-close" viewBox="0 0 16 16"><path d="M4 4l8 8M12 4l-8 8"/></symbol>
+      <symbol id="i-copy" viewBox="0 0 16 16"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/><path d="M10.5 5.5V3.5a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2"/></symbol>
+      <symbol id="i-check" viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 16 16"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="M2.5 4.5L8 9l5.5-4.5"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 16 16"><path d="M5.5 2.5l1.5 3-1.6 1.2a8 8 0 0 0 3.9 3.9L10.5 9l3 1.5-.5 2.3a1.2 1.2 0 0 1-1.3.9A11 11 0 0 1 2.3 4.3a1.2 1.2 0 0 1 .9-1.3z"/></symbol>
+      <symbol id="i-comp" viewBox="0 0 16 16"><path d="M8 1.8L11 4.8 8 7.8 5 4.8zM8 8.2l3 3-3 3-3-3zM4.6 5.2l3 3-3 3-3-3zM11.4 5.2l3 3-3 3-3-3z"/></symbol>
+      <symbol id="i-img" viewBox="0 0 16 16"><rect x="2" y="2.5" width="12" height="11" rx="1.5"/><circle cx="6" cy="6.5" r="1.3"/><path d="M2.5 12l3.8-3.6 2.7 2.4 2-1.8 2.5 2.4"/></symbol>
+      <symbol id="i-frame" viewBox="0 0 16 16"><path d="M5 1.5v13M11 1.5v13M1.5 5h13M1.5 11h13"/></symbol>
+      <symbol id="i-text" viewBox="0 0 16 16"><path d="M3 3.5h10M8 3.5v9.5"/></symbol>
+      <symbol id="i-pen" viewBox="0 0 16 16"><path d="M2.5 13.5L4.5 8.5 10 3l3 3-5.5 5.5z"/><circle cx="6.6" cy="9.4" r=".9"/></symbol>
+      <symbol id="i-move" viewBox="0 0 16 16"><path d="M3 2l10 5.5-4.5 1-2 4.5z"/></symbol>
+      <symbol id="i-comment" viewBox="0 0 16 16"><path d="M8 2.5a5.5 5.5 0 1 1-4.6 8.5L2.5 13.5l.6-2.9A5.5 5.5 0 0 1 8 2.5z"/></symbol>
+      <symbol id="i-reset" viewBox="0 0 16 16"><path d="M3 8a5 5 0 1 0 1.6-3.7M3 2.5v2.8h2.8"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 4.5V8l2.5 1.5"/></symbol>
+      <symbol id="i-cap" viewBox="0 0 16 16"><path d="M1.5 6L8 3l6.5 3L8 9zM4 7.3v3.6c2.5 1.6 5.5 1.6 8 0V7.3"/></symbol>
+      <symbol id="i-layout" viewBox="0 0 16 16"><path d="M2 4h4v8H2zM10 4h4v8h-4zM7 8h2"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 16 16"><path d="M8 14s4.5-4.2 4.5-7.5a4.5 4.5 0 0 0-9 0C3.5 9.8 8 14 8 14z"/><circle cx="8" cy="6.5" r="1.6"/></symbol>
+    </defs>
+  </svg>
+
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <a class="brand" href="#top" aria-label="Divyangana Bhave — home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="brand-name">Divyangana Bhave</span>
+      <span class="brand-path">/ Portfolio</span>
+    </a>
+    <nav class="nav-pill" aria-label="Primary">
+      <span class="nav-glider" aria-hidden="true"></span>
+      <a href="#top" data-spy="top">Home</a>
+      <a href="#about" data-spy="about">About</a>
+      <a href="#work" data-spy="work">Work</a>
+      <a href="#journey" data-spy="journey">Journey</a>
+      <a href="#contact" data-spy="contact">Contact</a>
+    </nav>
+    <a class="btn-connect" href="#contact"><span>Let's Connect</span><svg class="ic"><use href="#i-ur"/></svg></a>
+    <button class="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <a href="#top"><span>Home</span><svg class="ic"><use href="#i-right"/></svg></a>
+    <a href="#about"><span>About</span><svg class="ic"><use href="#i-right"/></svg></a>
+    <a href="#work"><span>Work</span><svg class="ic"><use href="#i-right"/></svg></a>
+    <a href="#journey"><span>Journey</span><svg class="ic"><use href="#i-right"/></svg></a>
+    <a href="#contact"><span>Contact</span><svg class="ic"><use href="#i-right"/></svg></a>
+    <p>divyanganabhave@gmail.com</p>
+  </div>
+
+  <main id="main">
+    <!-- ============ HERO / CANVAS ============ -->
+    <section class="hero" id="top" data-tool="move" aria-label="Introduction">
+      <div class="ruler ruler-x" aria-hidden="true"><div class="ruler-band"></div><div class="ruler-labels"></div></div>
+      <div class="ruler ruler-y" aria-hidden="true"><div class="ruler-band"></div><div class="ruler-labels"></div></div>
+      <div class="ruler-corner" aria-hidden="true"></div>
+
+      <div class="layout-grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+      <div class="frame-label hero-fl" aria-hidden="true"><svg class="ic"><use href="#i-frame"/></svg> Home · <span class="fl-device">Desktop</span> <span class="fl-size mono">1440 × 900</span></div>
+
+      <div class="stage">
+        <div class="hero-head">
+          <div class="eyebrows" aria-hidden="true">
+            <span class="eb" data-reveal-hero><svg class="ic"><use href="#i-comp"/></svg> UI/UX designer · research-led, detail-obsessed</span>
+            <span class="eb" data-reveal-hero><svg class="ic"><use href="#i-pin"/></svg> B.Des UX @ Symbiosis · Pune, India</span>
+          </div>
+          <h1 class="hero-name layer" id="L-name" data-layer="Divyangana" data-kind="Text">
+            <span class="name-text">Divyangana</span>
+          </h1>
+          <svg class="sparkles" viewBox="0 0 80 80" aria-hidden="true" data-reveal-hero>
+            <path d="M52 8 L55 24 L71 27 L55 30 L52 46 L49 30 L33 27 L49 24 Z" />
+            <path d="M24 38 L26 47 L35 49 L26 51 L24 60 L22 51 L13 49 L22 47 Z" />
+            <g class="burst"><path d="M66 50 l6 4" /><path d="M64 56 l8 0" /><path d="M66 62 l6-4" /></g>
+          </svg>
+        </div>
+
+        <p class="statement layer" id="L-statement" data-layer="Statement" data-kind="Text">I design intuitive, meaningful digital experiences: interfaces that look refined and quietly untangle the complex.</p>
+
+        <div class="cta-row">
+          <a class="btn-dark layer" id="L-button" data-layer="Button" data-kind="Frame" href="#work" data-reveal-hero>See selected work <svg class="ic"><use href="#i-down"/></svg></a>
+        </div>
+
+
+        <div class="obj obj-comment layer" id="L-comment" data-layer="Comment: Divya" data-kind="Comment" data-drag data-reveal-hero>
+          <span class="c-pin">D<b>2</b></span>
+          <div class="c-body">
+            <div class="c-meta"><b>Divya</b> <span>just now</span></div>
+            <p>I sweat the tiny details so the people using it never have to.</p>
+          </div>
+        </div>
+
+        <div class="obj obj-sticky layer" id="L-sticky" data-layer="Sticky: Case files" data-kind="Frame" data-drag data-reveal-hero>
+          <span class="st-k">Inside this file</span>
+          <ol class="st-list">
+            <li><button type="button" data-open="0">Aggregator Portal</button></li>
+            <li><button type="button" data-open="1">Hestia</button></li>
+            <li><button type="button" data-open="2">NavAssist</button></li>
+            <li><button type="button" data-open="3">Waggle</button></li>
+            <li><button type="button" data-open="4">Taranaksh</button></li>
+          </ol>
+          <span class="st-by">5 case files · pick one</span>
+        </div>
+
+        <div class="obj obj-stat layer" id="L-stat" data-layer="Stat: NavAssist SUS" data-kind="Frame" data-drag data-reveal-hero>
+          <span class="ex-label"><svg class="ic"><use href="#i-comp"/></svg> NavAssist · Usability test</span>
+          <div class="sx-card">
+            <div class="sx-top"><b>82.5</b><svg viewBox="0 0 120 64" aria-hidden="true"><path class="trk" d="M8 58 A52 52 0 0 1 112 58"/><path class="val" d="M8 58 A52 52 0 0 1 112 58"/></svg></div>
+            <span class="sx-sub">System Usability Scale score. Above 80 is rated excellent.</span>
+            <button type="button" class="sx-btn" data-open="2">Read the case <svg class="ic"><use href="#i-right"/></svg></button>
+          </div>
+        </div>
+
+        <div class="mp-cursor mp-coral layer" id="L-now" data-layer="Now: Aggregator Portal" data-kind="Cursor" data-reveal-hero>
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 1.5 L14 7 L8.5 8.5 L6.5 14 Z" /></svg>
+          <span>Now: Aggregator Portal</span>
+        </div>
+
+        <div class="pen-cursor" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M3 21 L6 13 L15 4 L20 9 L11 18 Z" /><circle cx="8.6" cy="15.4" r="1.4" /></svg>
+          <span>Divya · Pen</span>
+        </div>
+
+        <div class="selection" aria-hidden="true">
+          <i class="h tl"></i><i class="h tc"></i><i class="h tr"></i><i class="h ml"></i><i class="h mr"></i><i class="h bl"></i><i class="h bc"></i><i class="h br"></i>
+          <span class="sel-dim mono">0 × 0</span>
+        </div>
+        <div class="hover-outline" aria-hidden="true"><span></span></div>
+      </div>
+
+      <aside class="panel panel-layers" aria-label="Layers — select an object on the canvas" data-reveal-hero>
+        <div class="p-tabs"><b>Layers</b><span>Assets</span><em>Home</em></div>
+        <ul class="layers-list">
+          <li class="ll-frame"><svg class="ic"><use href="#i-frame"/></svg> Home — Desktop</li>
+        </ul>
+      </aside>
+
+      <aside class="panel panel-design" aria-label="Design properties of the selected object" data-reveal-hero>
+        <div class="p-tabs"><b>Design</b><span>Prototype</span><span>Inspect</span></div>
+        <div class="dp-sec">
+          <div class="dp-k">Name / <span class="dp-kind">Text</span></div>
+          <div class="dp-name">Divyangana</div>
+          <div class="dp-grid mono">
+            <label><i>X</i><span data-dp="x">0</span></label>
+            <label><i>Y</i><span data-dp="y">0</span></label>
+            <label><i>W</i><span data-dp="w">0</span></label>
+            <label><i>H</i><span data-dp="h">0</span></label>
+          </div>
+        </div>
+        <div class="dp-sec dp-text">
+          <div class="dp-k">Text</div>
+          <div class="dp-row"><span data-dp="font">Geist</span><span data-dp="weight">Semibold</span></div>
+          <div class="dp-grid mono">
+            <label><i>Aa</i><span data-dp="size">200</span></label>
+            <label><i>|A|</i><span data-dp="ls">-5%</span></label>
+          </div>
+        </div>
+        <div class="dp-sec">
+          <div class="dp-k">Fill</div>
+          <div class="dp-fill mono"><span class="sw" data-dp="swatch"></span><span data-dp="hex">0E0E10</span><span class="pct">100%</span></div>
+        </div>
+      </aside>
+
+      <div class="toolbar" role="toolbar" aria-label="Canvas tools" data-reveal-hero>
+        <button data-tool-btn="move" class="is-on" aria-label="Move tool, V" title="Move · V"><svg class="ic"><use href="#i-move"/></svg></button>
+        <button data-tool-btn="grid" aria-label="Toggle layout grid, G" aria-pressed="false" title="Layout grid · G"><svg class="ic"><use href="#i-frame"/></svg></button>
+        <button data-tool-btn="pen" aria-label="Pen: redraw the name, P" title="Pen · redraw name · P"><svg class="ic"><use href="#i-pen"/></svg></button>
+        <button data-tool-btn="text" aria-label="Text: edit the name, T" title="Text · edit name · T"><svg class="ic"><use href="#i-text"/></svg></button>
+        <button data-tool-btn="comment" aria-label="Comment: drop a reaction on the canvas, C" title="Comment · drop a reaction · C"><svg class="ic"><use href="#i-comment"/></svg></button>
+        <button data-tool-btn="reset" aria-label="Reset the canvas" title="Reset canvas"><svg class="ic"><use href="#i-reset"/></svg></button>
+        <span class="tb-sep"></span>
+        <span class="tb-zoom mono">100%</span>
+      </div>
+      <div class="tool-hint" aria-live="polite"></div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="about frame-sec" id="about">
+      <div class="frame-label sec-fl" aria-hidden="true"><svg class="ic"><use href="#i-frame"/></svg> About <span class="mono fl-live">— × —</span></div>
+      <div class="wrap about-grid">
+        <figure class="about-photo reveal">
+          <img src="assets/img/me-photo.webp" alt="Divyangana smiling in evening light beside a red brick wall on the Symbiosis campus" width="960" height="1280" loading="lazy" />
+        </figure>
+
+        <div class="about-copy">
+          <h2 class="about-hello reveal">Hello, I am Divyangana</h2>
+          <div class="about-text reveal">
+            <p>I’m a final-year UI/UX design student from Pune, drawn to intuitive and meaningful digital experiences. For me, good design should not only look refined; it should simplify complexity and solve real problems with clarity.</p>
+            <p>As I grow in the field, I combine research, structured thinking and visual sensitivity to create user-centred solutions that are both functional and thoughtfully crafted.</p>
+          </div>
+          <dl class="about-meta reveal">
+            <div><dt>Location</dt><dd>Pune, India</dd></div>
+            <div><dt>Education</dt><dd><span class="ln">B.Des User Experience Design,</span> <span class="ln">Symbiosis Institute of Design</span></dd></div>
+            <div><dt>Languages</dt><dd>English, Marathi, Hindi</dd></div>
+          </dl>
+          <div class="tools reveal">
+            <h3>Toolkit</h3>
+            <ul class="tool-row">
+              <li class="tool" data-tip="Figma"><img src="assets/img/tool-figma.webp" alt="Figma" loading="lazy" /></li>
+              <li class="tool" data-tip="Illustrator"><img src="assets/img/tool-ai.webp" alt="Adobe Illustrator" loading="lazy" /></li>
+              <li class="tool" data-tip="Photoshop"><img src="assets/img/tool-ps.webp" alt="Adobe Photoshop" loading="lazy" /></li>
+              <li class="tool" data-tip="InDesign"><img src="assets/img/tool-id.webp" alt="Adobe InDesign" loading="lazy" /></li>
+              <li class="tool" data-tip="Lightroom"><img src="assets/img/tool-lr.webp" alt="Adobe Lightroom" loading="lazy" /></li>
+              <li class="tool" data-tip="Procreate"><img src="assets/img/tool-procreate.webp" alt="Procreate" loading="lazy" /></li>
+              <li class="tool tool-xd" data-tip="Adobe XD"><span aria-label="Adobe XD">Xd</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SPACES & TOOLS ============ -->
+    <section class="spaces" aria-labelledby="tools-h">
+      <div class="tools-head wrap">
+        <h2 class="tools-h" id="tools-h">Tools I design and test with</h2>
+        <p>From research and first sketches to accessibility checks and developer hand-off.</p>
+      </div>
+      <div class="marquee m-a">
+        <ul class="track" aria-label="Design and prototyping tools">
+          <li class="tool-item"><span class="logo" style="--src:url(assets/icons/figma.svg)" aria-hidden="true"></span>Figma</li>
+          <li class="tool-item"><span class="logo mono" aria-hidden="true">Fj</span>FigJam</li>
+          <li class="tool-item"><span class="logo" style="--src:url(assets/icons/sketch.svg)" aria-hidden="true"></span>Sketch</li>
+          <li class="tool-item"><span class="logo mono" aria-hidden="true">Pp</span>ProtoPie</li>
+          <li class="tool-item"><span class="logo" style="--src:url(assets/icons/framer.svg)" aria-hidden="true"></span>Framer</li>
+          <li class="tool-item"><span class="logo" style="--src:url(assets/icons/adobeillustrator.svg)" aria-hidden="true"></span>Adobe Illustrator</li>
+          <li class="tool-item"><span class="logo" style="--src:url(assets/icons/adobephotoshop.svg)" aria-hidden="true"></span>Adobe Photoshop</li>
+          <li class="tool-item"><span class="logo" style="--src:url(assets/icons/adobeindesign.svg)" aria-hidden="true"></span>Adobe InDesign</li>
+          <li class="tool-item"><span class="logo" style="--src:url(assets/icons/adobeaftereffects.svg)" aria-hidden="true"></span>Adobe After Effects</li>
+          <li class="tool-item"><span class="logo" style="--src:url(assets/icons/canva.svg)" aria-hidden="true"></span>Canva</li>
+          <li class="tool-item"><span class="logo mono" aria-hidden="true">Lf</span>LottieFiles</li>
+          <li class="tool-item"><span class="logo" style="--src:url(assets/icons/miro.svg)" aria-hidden="true"></span>Miro</li>
+          <li class="tool-item"><span class="logo mono" aria-hidden="true">Zh</span>Zeroheight</li>
+        </ul>
+      </div>
+      <div class="marquee m-b reverse">
+        <ul class="track" aria-label="Research, build and presentation tools">
+          <li class="tool-item"><span class="logo" style="--src:url(assets/icons/googleforms.svg)" aria-hidden="true"></span>Google Forms</li>
+          <li class="tool-item"><span class="logo mono" aria-hidden="true">Cl</span>Microsoft Clarity</li>
+          <li class="tool-item"><span class="logo" style="--src:url(assets/icons/visualstudiocode.svg)" aria-hidden="true"></span>VS Code</li>
+          <li class="tool-item"><span class="logo" style="--src:url(assets/icons/storybook.svg)" aria-hidden="true"></span>Storybook</li>
+          <li class="tool-item"><span class="logo" style="--src:url(assets/icons/react.svg)" aria-hidden="true"></span>React</li>
+          <li class="tool-item"><span class="logo mono" aria-hidden="true">St</span>Stark</li>
+          <li class="tool-item"><span class="logo" style="--src:url(assets/icons/lighthouse.svg)" aria-hidden="true"></span>Google Lighthouse</li>
+          <li class="tool-item"><span class="logo" style="--src:url(assets/icons/googleanalytics.svg)" aria-hidden="true"></span>Google Analytics 4</li>
+          <li class="tool-item"><span class="logo mono" aria-hidden="true">Am</span>Amplitude</li>
+          <li class="tool-item"><span class="logo" style="--src:url(assets/icons/notion.svg)" aria-hidden="true"></span>Notion</li>
+          <li class="tool-item"><span class="logo" style="--src:url(assets/icons/microsoftpowerpoint.svg)" aria-hidden="true"></span>Microsoft PowerPoint</li>
+          <li class="tool-item"><span class="logo" style="--src:url(assets/icons/googleslides.svg)" aria-hidden="true"></span>Google Slides</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ WORK ============ -->
+    <section class="work frame-sec" id="work">
+      <h2 class="sr-only">Selected work</h2>
+      <ul class="bento wrap" role="list"></ul>
+    </section>
+
+    <!-- ============ JOURNEY / VERSION HISTORY ============ -->
+    <section class="journey frame-sec" id="journey">
+      <div class="frame-label sec-fl" aria-hidden="true"><svg class="ic"><use href="#i-frame"/></svg> Version history <span class="mono fl-live">— × —</span></div>
+      <div class="wrap">
+        <h2 class="journey-h reveal">Every version taught me something new.</h2>
+        <div class="journey-grid">
+          <div class="vh-panel reveal">
+            <div class="vh-top"><span><svg class="ic"><use href="#i-clock"/></svg> Experience</span><span class="mono muted">5 versions</span></div>
+            <ol class="vh-list">
+              <li class="vh is-current" tabindex="0"><span class="vh-dot"></span><div class="vh-main"><b>Bajaj Finserv</b><span>UI/UX Design Intern</span><p>Designed internal enterprise tools end to end: research, information architecture, prototyping and engineering hand-off.</p></div><div class="vh-side"><time class="mono">May – Jul 2026</time><em>Latest version</em></div></li>
+              <li class="vh" tabindex="0"><span class="vh-dot"></span><div class="vh-main"><b>Inteliment Technologies, Pune</b><span>Junior UI/UX Design Intern</span><p>First studio experience, designing interfaces alongside a product team.</p></div><div class="vh-side"><time class="mono">May – Jun 2025</time></div></li>
+              <li class="vh" tabindex="0"><span class="vh-dot"></span><div class="vh-main"><b>Climate Troopers</b><span>Service learning</span><p>Community-focused service learning around climate action.</p></div><div class="vh-side"><time class="mono">Dec 2024 – Feb 2025</time></div></li>
+              <li class="vh" tabindex="0"><span class="vh-dot"></span><div class="vh-main"><b>Banarasi Silk Saree Weaving</b><span>Craft documentation internship</span><p>Ten days with weavers in Varanasi, the field study behind Taranaksh.</p></div><div class="vh-side"><time class="mono">May 1 – 10</time></div></li>
+              <li class="vh" tabindex="0"><span class="vh-dot"></span><div class="vh-main"><b>Ab-Normal Homes</b><span>Volunteer</span><p>Two summers volunteering with the community.</p></div><div class="vh-side"><time class="mono">May – Jun 2023, 2024</time></div></li>
+            </ol>
+          </div>
+          <div class="edu-card reveal">
+            <div class="vh-top"><span><svg class="ic"><use href="#i-cap"/></svg> Education</span></div>
+            <ul class="edu-list">
+              <li><b>Symbiosis Institute of Design</b><span>B.Des User Experience Design, Pune</span><time class="mono">2023 – 2027</time></li>
+              <li><b>Dr. Kalmadi Shamrao</b><span>Junior College, Pune</span><time class="mono">2021 – 2023</time></li>
+              <li><b>Bharatiya Vidya Bhavan</b><span>Secondary, Pune</span><time class="mono">2009 – 2021</time></li>
+            </ul>
+            <div class="edu-note"><span class="c-pin small">D</span><p>Final year of the B.Des, open to UX roles and internships.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRINCIPLES ============ -->
+    <section class="principles frame-sec" id="principles">
+      <div class="frame-label sec-fl" aria-hidden="true"><svg class="ic"><use href="#i-frame"/></svg> How I work <span class="mono fl-live">— × —</span></div>
+      <div class="wrap">
+        <h2 class="pr-h reveal">Good design starts with listening.</h2>
+        <p class="pr-p reveal">Four things I hold on to, whatever I’m designing.</p>
+      </div>
+      <div class="al-frame wrap reveal">
+        <div class="al-label mono"><span><svg class="ic"><use href="#i-layout"/></svg> Auto layout</span><span>Horizontal</span><span>Gap 24</span><span>Padding 24</span></div>
+        <div class="al-row">
+          <article class="pr-card is-open" tabindex="0" style="--c:#3B30F0"><h3>Simplify the complex.</h3><div class="pr-more"><div><p>Untangle messy systems, like a FASTag ops channel run on spreadsheets, into flows people understand at a glance.</p><em>Clarity over clutter.</em></div></div></article>
+          <article class="pr-card" tabindex="0" style="--c:#D33B1E"><h3>Research before pixels.</h3><div class="pr-more"><div><p>Surveys, interviews, card sorts and eye tracking. Real routines reveal more than assumptions ever could.</p><em>Observe first.</em></div></div></article>
+          <article class="pr-card" tabindex="0" style="--c:#2B7C86"><h3>Design for everyone.</h3><div class="pr-more"><div><p>Accessibility is the baseline, not a feature. If it works with a screen reader, it works better for everyone.</p><em>Inclusive by default.</em></div></div></article>
+          <article class="pr-card" tabindex="0" style="--c:#86651C"><h3>Earn trust, keep control.</h3><div class="pr-more"><div><p>AI assists, people decide. Transparency and visible updates turn anxiety into confidence.</p><em>Human in the loop.</em></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="contact frame-sec" id="contact">
+      <div class="frame-label sec-fl" aria-hidden="true"><svg class="ic"><use href="#i-frame"/></svg> Say hello <span class="mono fl-live">— × —</span></div>
+      <div class="wrap contact-grid">
+        <div>
+          <h2 class="contact-h reveal">Made it this far? Let's make something <span class="serif mean">meaningful<span class="text-tag mono">Text · 112</span></span>.</h2>
+          <p class="contact-p reveal">Whether it’s a full-time role, an internship, a collaboration or a conversation about research, I’d love to hear from you.</p>
+          <div class="contact-btns reveal">
+            <button class="btn-dark copy-email" data-email="divyanganabhave@gmail.com"><span>Copy my email</span><svg class="ic"><use href="#i-copy"/></svg></button>
+            <a class="btn-ghost" href="mailto:divyanganabhave@gmail.com"><svg class="ic"><use href="#i-mail"/></svg> Write an email</a>
+            <a class="btn-ghost" href="tel:+918888637965"><svg class="ic"><use href="#i-phone"/></svg> 88886 37965</a>
+          </div>
+        </div>
+        <div class="contact-side reveal">
+          <nav class="cs-block" aria-label="Footer">
+            <span class="cs-k">Pages <b class="mono">5</b></span>
+            <a href="#top"><span>Home</span></a>
+            <a href="#about"><span>About</span></a>
+            <a href="#work"><span>Work</span></a>
+            <a href="#journey"><span>Journey</span></a>
+            <a href="#contact"><span>Contact</span></a>
+          </nav>
+          <div class="cs-block">
+            <span class="cs-k">Elsewhere</span>
+            <a href="mailto:divyanganabhave@gmail.com"><span>divyanganabhave@gmail.com</span><svg class="ic"><use href="#i-ur"/></svg></a>
+            <a href="tel:+918888637965"><span>+91 88886 37965</span><svg class="ic"><use href="#i-ur"/></svg></a>
+          </div>
+          <div class="cs-block cs-time">
+            <span class="cs-k">Local time <em class="presence"><i></i> <span>awake</span></em></span>
+            <b class="clock mono">--:--:--</b>
+            <span>Pune, India · IST</span>
+          </div>
+        </div>
+      </div>
+      <div class="big-name" aria-hidden="true"><span class="bn-outline">Divyangana</span><span class="bn-fill">Divyangana</span></div>
+      <footer class="foot wrap">
+        <span>© 2026 Divyangana Bhave</span>
+        <span>Designed with care in Pune</span>
+        <a href="#top">Back to top <svg class="ic"><use href="#i-up"/></svg></a>
+      </footer>
+    </section>
+  </main>
+
+  <!-- ============ CASE FILE ============ -->
+  <div class="case" hidden>
+    <div class="case-backdrop"></div>
+    <article class="case-sheet" role="dialog" aria-modal="true" aria-labelledby="case-title" tabindex="-1">
+      <div class="case-bar">
+        <span class="cb-file"><b class="cb-mono">P.</b><span class="cb-name">Project</span></span>
+        <nav class="cb-nav" aria-label="Case file sections"></nav>
+        <span class="cb-count">00—00</span>
+        <div class="cb-actions">
+          <button class="cb-prev" aria-label="Previous case file"><svg class="ic"><use href="#i-left"/></svg></button>
+          <button class="cb-next" aria-label="Next case file"><svg class="ic"><use href="#i-right"/></svg></button>
+          <button class="cb-close" aria-label="Close case file"><svg class="ic"><use href="#i-close"/></svg></button>
+        </div>
+      </div>
+      <div class="case-body"></div>
+    </article>
+  </div>
+
+  <div class="toast" role="status" aria-live="polite"></div>
+  <div class="you-cursor" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2 1.5 L14 7 L8.5 8.5 L6.5 14 Z" /></svg><span>You</span></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/opentype.js/1.3.4/opentype.min.js" defer></script>
+  <script src="data.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>
