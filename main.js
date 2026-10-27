@@ -1029,21 +1029,41 @@
       caseIO.unobserve(e.target);
     }), { root: body, threshold: 0.06 });
     $$('.cx, .rv', body).forEach(el => caseIO.observe(el));
+    // safety net: the observer can skip frames on fast scrolls or jumps, so once
+    // scrolling settles, reveal anything already scrolled past or on screen
+    let pending = $$('.cx, .rv', body), sweepT = 0;
+    const sweep = () => {
+      const lim = body.getBoundingClientRect().bottom;
+      pending = pending.filter(el => {
+        if (el.classList.contains('in')) return false;
+        if (el.getBoundingClientRect().top >= lim) return true;
+        el.classList.add('in');
+        $$('.count', el).forEach(countUp);
+        caseIO.unobserve(el);
+        return false;
+      });
+    };
+    body.addEventListener('scroll', () => { clearTimeout(sweepT); sweepT = setTimeout(sweep, 140); }, { passive: true, signal: caseAbort.signal });
+    caseAbort.signal.addEventListener('abort', () => clearTimeout(sweepT));
+    setTimeout(sweep, 450);
     wireCase(body, caseAbort.signal);
     $('.c-next-btn', body).addEventListener('click', () => fillCase(caseIdx + 1));
   }
 
-  let closeT = 0;
+  let closeT = 0, caseOpen = false;
   function openCase(i) {
     clearTimeout(closeT);
+    caseOpen = true;
     lastFocus = document.activeElement;
     fillCase(i);
     caseEl.hidden = false;
     document.body.style.overflow = 'hidden';
     requestAnimationFrame(() => requestAnimationFrame(() => caseEl.classList.add('open')));
+    setTimeout(() => { if (caseOpen) caseEl.classList.add('open'); }, 120);
     setTimeout(() => sheet.focus(), 60);
   }
   function closeCase() {
+    caseOpen = false;
     caseEl.classList.remove('open');
     document.body.style.overflow = '';
     closeT = setTimeout(() => { caseEl.hidden = true; body.innerHTML = ''; if (caseAbort) caseAbort.abort(); }, reduce ? 0 : 520);
