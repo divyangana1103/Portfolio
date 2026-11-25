@@ -870,6 +870,23 @@
         ${st.noFlow ? '' : flowStrip(['Observed issue', 'UX implication', 'Design consideration'], st.flowNote || 'These findings point to what to refine next.')}`, 'test');
     }
 
+    /* screen-by-screen walkthrough: screen on the left, brief on the right */
+    if (c.walkthrough) {
+      const w = c.walkthrough;
+      S('walkthrough', 'Screens', 'Screen by screen', `
+        ${head(w.head)}
+        <div class="wt">${w.items.map((it, k) => `
+          <article class="wt-row rv">
+            <figure class="wt-shot"><img src="assets/img/${it.img}.webp" alt="${esc(p.title)}: ${esc(it.title)} screen" loading="lazy" /></figure>
+            <div class="wt-copy">
+              <span class="wt-n">${String(k + 1).padStart(2, '0')} · ${esc(it.crumb)}</span>
+              <h4>${esc(it.title)}</h4>
+              <p>${esc(it.text)}</p>
+              <ul>${it.points.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+            </div>
+          </article>`).join('')}</div>`);
+    }
+
     if (c.screensAfterTesting) { const i2 = secs.findIndex(s => s.id === 'interface'); const t2 = secs.findIndex(s => s.id === 'testing'); if (i2 > -1 && t2 > i2) secs.splice(t2, 0, secs.splice(i2, 1)[0]); }
     /* 08 — reflection */
     if (c.reflection) {
