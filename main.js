@@ -606,7 +606,7 @@
 
     /* 01 — the problem */
     const artisans = block('artisans');
-    const pains = artisans ? artisans.items.map(([t, s], k) => [t, s, MOD_ICONS[k % MOD_ICONS.length]]) : [];
+    const pains = artisans && !p.discovery ? artisans.items.map(([t, s], k) => [t, s, MOD_ICONS[k % MOD_ICONS.length]]) : [];
     const stack = p.problem.length + p.goal.length > 520;
     S('problem', 'About', 'About', `
       <div class="cs-pg2 ${stack ? 'stack' : ''}">
@@ -617,7 +617,7 @@
         <div class="cell rv" style="--k:${k}"><span class="cell-ic">${icon(ic || 'i-comp')}</span><b>${esc(t)}</b><p>${esc(s)}</p></div>`).join('')}</div>` : ''}
       ${p.callout ? `<div class="cs-callout rv"><b>${esc(p.callout.k)}</b><p>${esc(p.callout.v)}</p></div>` : ''}
       ${p.facts ? `<div class="cs-facts">${p.facts.map(([b, s], k) => `<div class="rv" style="--k:${k}"><b>${countSpan(b)}</b><span>${esc(s)}</span></div>`).join('')}</div>` : ''}
-      <blockquote class="cs-hmw rv">“${esc(c.hmw || p.goal)}”</blockquote>`);
+      ${(p.personas || []).length ? '' : `<blockquote class="cs-hmw rv">“${esc(c.hmw || p.goal)}”</blockquote>`}`);
 
     /* 02 — research & discovery (dark) */
     const stats = p.research ? p.research.methods.map(([b, s]) => { const n = (s.match(/^(\d+\+?)/) || [])[1] || ''; return [n, b, n ? s.replace(n, '').trim() : s]; })
@@ -635,7 +635,29 @@
       const aims = block('aims');
       if (aims) right = `<div class="themes"><span class="cs-mini">What I aimed to achieve</span>${aims.items.map(([t, s], k) => `<div class="theme rv" style="--k:${k}"><span class="t-n">${icon(MOD_ICONS[k])}</span><p><b>${esc(t)}</b> ${esc(s)}</p></div>`).join('')}</div>`;
     }
-    S('research', 'Research', 'Research & discovery', `
+    if (p.discovery) {
+      const two = n => String(n).padStart(2, '0');
+      const note = n => n ? `<p class="dsc-note rv"><b>${esc(n[0])}:</b> ${esc(n[1])}</p>` : '';
+      const statStrip = `<div class="stats dsc-stats">${stats.map(([n, b, s], k) => `<div class="stat rv" style="--k:${k}"><b>${n ? countSpan(n) : ''}</b><span>${esc(b)}</span>${s ? `<em>${esc(s)}</em>` : ''}</div>`).join('')}</div>`;
+      const blocks = p.discovery.map((d, bi) => `
+        <div class="dsc-block">
+          <div class="dsc-head rv"><span class="dsc-n">${two(bi + 1)}</span><h4>${esc(d.title)}</h4></div>
+          <div class="dsc-body">
+            ${(d.lead || []).map(t => `<p class="dsc-lead rv">${esc(t)}</p>`).join('')}
+            ${d.list ? `<p class="dsc-sub rv">${esc(d.listLead || '')}</p><ol class="dsc-list">${d.list.map((t, k) => `<li class="rv" style="--k:${k}"><span>${two(k + 1)}</span><p>${esc(t)}</p></li>`).join('')}</ol>` : ''}
+            ${d.stats && stats.length ? statStrip : ''}
+            ${d.cards ? `<div class="dsc-cards n${d.cards.length}">${d.cards.map(([t, s], k) => `<div class="dsc-card rv" style="--k:${k % 2}"><span>${two(k + 1)}</span><b>${esc(t)}</b><p>${esc(s)}</p></div>`).join('')}</div>` : ''}
+            ${d.rows ? `<ol class="dsc-rows">${d.rows.map(([t, s], k) => `<li class="rv" style="--k:${k}"><span>${two(k + 1)}</span><b>${esc(t)}</b><p>${esc(s)}</p></li>`).join('')}</ol>` : ''}
+            ${d.insights ? `<ol class="dsc-rows dsc-ins">${d.insights.map(([t, s], k) => `<li class="rv" style="--k:${k}"><span>Insight ${two(k + 1)}</span><b>${esc(t)}</b><p>${esc(s)}</p></li>`).join('')}</ol>` : ''}
+            ${d.names ? `<div class="dsc-names">${d.names.map((nm, k) => `<span class="rv" style="--k:${k}">${esc(nm)}</span>`).join('')}</div>` : ''}
+            ${d.gallery && p.gallery ? `<div class="cs-sort"><span class="dsc-sub">${esc(p.gallery.title)} with pet parents</span><div class="fan rv">${p.gallery.imgs.map((g, k) => `<img style="--k:${k}" src="assets/img/${g}.webp" alt="Card-sorting board ${k + 1} with sticky notes" loading="lazy" />`).join('')}</div></div>` : ''}
+            ${d.comps ? `<div class="dsc-comps">${d.comps.map(([nm, st], k) => `<div class="dsc-comp rv" style="--k:${k}"><b>${esc(nm)}</b><span class="dsc-sub">Strengths</span><ul>${st.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>`).join('')}</div>` : ''}
+            ${note(d.note)}
+          </div>
+        </div>`).join('');
+      S('research', 'Research', 'Research & discovery', `
+        <div class="dsc">${blocks}</div>`, 'soft');
+    } else S('research', 'Research', 'Research & discovery', `
       ${head(c.researchHead || 'What research told me', c.researchSub)}
       <div class="cs-research">
         <div class="stats">${stats.map(([n, b, s], k) => `<div class="stat rv" style="--k:${k}"><b>${n ? countSpan(n) : '—'}</b><span>${esc(b)}</span>${s ? `<em>${esc(s)}</em>` : ''}</div>`).join('')}</div>
@@ -669,42 +691,49 @@
     /* personas — who I designed for */
     const people = p.personas || [];
     if (people.length) {
-      const pane = (pe, k) => `
-        <div class="pz-pane ${k === 0 ? 'on' : ''}" role="tabpanel" id="pz-${p.id}-${k}">
-          <div class="pz">
-            <figure class="pz-card">
-              <img src="assets/img/${pe.img}.webp" alt="Persona photo for ${esc(pe.name)}" loading="lazy" />
-              <figcaption><b>${esc(pe.name)}</b><span>${esc(pe.age)} years old · ${esc(pe.role)}</span></figcaption>
-            </figure>
-            <div class="pz-story">
-              <p class="pz-bio">${esc(pe.bio)}</p>
-              <div class="chat-log">${pe.quotes.map((q, j) => `<div class="msg" style="--k:${j}"><span class="c-pin small">${esc(pe.name[0])}</span><p>${esc(q)}</p></div>`).join('')}</div>
-            </div>
+      // order on every card: goals, pain points, then technology (or interests)
+      const ORDER = ['Goals', 'Pain points'];
+      const card = (pe, k) => {
+        const cols = [...pe.cols].sort((x, y) => {
+          const ix = ORDER.indexOf(x[0]), iy = ORDER.indexOf(y[0]);
+          return (ix < 0 ? 9 : ix) - (iy < 0 ? 9 : iy);
+        });
+        return `
+        <article class="pc rv" style="--k:${k}">
+          <div class="pc-top">
+            ${pe.avatar ? `<img class="pc-img pc-av" src="assets/img/${pe.avatar}.webp" alt="" loading="lazy" />` : `<span class="pc-img pc-ph" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="4"/><path d="M4 20.5c.8-4 4.1-6.5 8-6.5s7.2 2.5 8 6.5"/></svg></span>`}
+            <div><h4 class="pc-name">${esc(pe.name)}</h4><span class="pc-meta">${esc(pe.age)} years old · ${esc(pe.role)}</span></div>
           </div>
-          <div class="pz-cols">${pe.cols.map(([t, ic, items]) => `
-            <div class="pz-col"><span class="pz-ic">${icon(ic)}</span><h4>${esc(t)}</h4><ul>${items.map(x => `<li>${esc(x.replace(/\.$/, ''))}</li>`).join('')}</ul></div>`).join('')}</div>
-        </div>`;
-      S('persona', people.length > 1 ? 'Personas' : 'Persona', people.length > 1 ? 'Who I designed for' : 'Who I designed for', `
+          ${pe.quotes && pe.quotes.length ? `<blockquote class="pc-quote">“${esc(pe.quotes[0])}”</blockquote>` : ''}
+          ${cols.map(([t, , items]) => `
+          <div class="pc-sec"><span class="pc-k">${esc(t === 'Technology usage' ? 'Technology used' : t)}</span>
+            <p>${esc(pe.lines && pe.lines[t] ? pe.lines[t] : items.map(x => x.replace(/\.$/, '')).join(', ') + '.')}</p></div>`).join('')}
+        </article>`;
+      };
+      S('persona', people.length > 1 ? 'Personas' : 'Persona', 'Who I designed for', `
         ${head(people.length > 1 ? 'The Users' : 'The User')}
-        ${people.length > 1 ? `<div class="pz-tabs rv" role="tablist" style="--n:${people.length}">${people.map((pe, k) => `<button role="tab" aria-selected="${k === 0}" aria-controls="pz-${p.id}-${k}"><img src="assets/img/${pe.img}.webp" alt="" /><span><b>${esc(pe.name)}</b><em>${esc(pe.age)} · ${esc(pe.role.split(' · ')[0])}</em></span></button>`).join('')}</div>` : ''}
-        <div class="pz-panes rv">${people.map(pane).join('')}</div>`);
+        <div class="pcs n${people.length}" style="--n:${people.length}">${people.map(card).join('')}</div>
+        <blockquote class="cs-hmw hmw-lead rv">“${esc(c.hmw || p.goal)}”</blockquote>`);
     }
 
     /* who uses it (enterprise roles + network) */
     const roles = block('roles');
     if (roles || c.ecosystem) {
       const eco = c.ecosystem;
+      const net = c.network, av = c.roleAvatars || {};
+      const firstApp = net ? net.tiers.findIndex(t => t[3] === 'app') : -1;
       S('roles', 'Users', 'Who uses it', `
-        ${head(roles ? roles.title : eco.head, roles ? roles.note : eco.sub)}
-        ${roles ? `<div class="roles">
-          <div class="role-tabs" role="tablist">${roles.items.map(([t], k) => `<button role="tab" aria-selected="${k === 0}" data-k="${k}"><span class="c-pin small">${esc(t[0])}</span>${esc(t)}</button>`).join('')}</div>
-          <div class="role-panes">${roles.items.map(([t, s], k) => `<div class="role-pane spot ${k === 0 ? 'on' : ''}" role="tabpanel"><b>${esc(t)}</b><p>${esc(s)}</p></div>`).join('')}</div>
-        </div>` : ''}
-        ${eco ? `<div class="eco rv"><div class="eco-head"><b>${esc(eco.head)}</b><p>${esc(eco.sub)}</p></div>
-          <div class="eco-rows">
-            <div class="eco-row on"><span class="eco-tag">Portal</span>${eco.portal.map(([t, s], k) => `${k ? `<i>${icon('i-right')}</i>` : ''}<div class="eco-node"><b>${esc(t)}</b><span>${esc(s)}</span></div>`).join('')}</div>
-            <div class="eco-row"><span class="eco-tag">App</span>${eco.app.map(([t, s], k) => `${k ? `<i>${icon('i-right')}</i>` : ''}<div class="eco-node"><b>${esc(t)}</b><span>${esc(s)}</span></div>`).join('')}</div>
-          </div></div>` : ''}`);
+        ${net ? `${head(net.head)}
+        <div class="net" role="list">${net.tiers.map(([t, kind, s, grp], k) => `
+          ${k === firstApp ? '<div class="net-split" aria-hidden="true"><span>↑ portal</span><i></i><span>app ↓</span></div>' : ''}
+          <div class="net-row ${grp}" role="listitem" style="--i:${k}">
+            <b>${esc(t)}</b><span class="net-kind">${esc(kind)}</span>${s ? `<span class="net-desc">${esc(s)}</span>` : ''}
+          </div>`).join('')}</div>` : ''}
+        ${roles ? `<h4 class="roles-head rv">${esc(roles.title)}</h4>${roles.note ? `<p class="roles-sub rv">${esc(roles.note)}</p>` : ''}
+        <div class="roles">
+          <div class="role-tabs" role="tablist">${roles.items.map(([t], k) => `<button role="tab" aria-selected="${k === 0}" data-k="${k}">${av[t] ? `<img class="rt-av" src="assets/img/${av[t]}.webp" alt="" />` : `<span class="c-pin small">${esc(t[0])}</span>`}${esc(t)}</button>`).join('')}</div>
+          <div class="role-panes">${roles.items.map(([t, s], k) => `<div class="role-pane ${k === 0 ? 'on' : ''}" role="tabpanel">${av[t] ? `<img class="rp-av" src="assets/img/${av[t]}.webp" alt="" />` : ''}<div class="rp-copy"><b>${esc(t)}</b><p>${esc(s)}</p></div></div>`).join('')}</div>
+        </div>` : ''}`);
     }
 
     /* 03 — design direction */
@@ -714,7 +743,7 @@
     S('direction', 'Direction', 'Design direction', `
       ${head(c.directionHead || 'Design direction')}
       ${dir ? `<div class="cs-cards n${dir.length}">${dir.map(([t, s, ic], k) => `<div class="dcard rv" style="--k:${k};--t:var(--k${(k % 3) + 1})"><span class="d-ic">${icon(ic || 'i-comp')}</span><b>${esc(t)}</b><p>${esc(s)}</p></div>`).join('')}</div>` : ''}
-      ${flips ? `<p class="cs-note">Each card is a problem I saw in the field, turned into a solution.</p><div class="c-flips">${flips.pairs.map(([a, s], k) => `
+      ${flips && !p.discovery ? `<p class="cs-note">Each card is a problem I saw in the field, turned into a solution.</p><div class="c-flips">${flips.pairs.map(([a, s], k) => `
           <button class="flip small rv" aria-pressed="false" style="--k:${k}">
             <span class="flip-in">
               <span class="flip-face front"><em>Problem</em><span class="flip-txt">${esc(a)}</span>${icon('i-reset')}</span>
