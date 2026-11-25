@@ -2037,3 +2037,13 @@ p, dd, li, blockquote, figcaption, .vh-main span, .edu-list span, .p-sub, .c-met
 /* network diagram: static */
 .net-row { cursor: default; transition: none; }
 .net-row:hover { transform: none; }
+
+/* ---------- ambient scrolling keeps running even with reduced motion ----------
+   The carousels and tools scroller move slowly and pause on hover, so they stay on. */
+@media (prefers-reduced-motion: reduce) {
+  .track { animation-name: marquee !important; animation-duration: 90s !important; animation-timing-function: linear !important; animation-iteration-count: infinite !important; }
+  .reel-track { animation-name: reel !important; animation-duration: var(--dur, 50s) !important; animation-timing-function: linear !important; animation-iteration-count: infinite !important; }
+  .reel { overflow: hidden !important; }
+  .reel.lofi.single .reel-track { animation: none !important; }
+  .reel:hover .reel-track, .marquee:hover .track { animation-play-state: paused; }
+}

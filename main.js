@@ -389,7 +389,7 @@
     buildRulers();
     const fontsReady = Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, 1800))]);
     await fontsReady;
-    const drawn = !reduce;
+    const drawn = true; // the name always types itself out
     if (drawn) await typeName();
     else hero.classList.add('name-shown');
     hero.classList.add('is-ready');
